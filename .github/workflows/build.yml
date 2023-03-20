@@ -48,9 +48,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ROM
-          path: ~/build/diamond.us/pokediamond.us.nds
+          path: ./build/diamond.us/pokediamond.us.nds
       - name: Artifact 2
         uses: actions/upload-artifact@v3
         with:
           name: ROM
-          path: ~/build/pearl.us/pokepearl.us.nds
+          path: ./build/pearl.us/pokepearl.us.nds
