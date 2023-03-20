@@ -29,8 +29,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Repo
         run: |
-          mkdir -p ~/download
-          cd ~/download
+          mkdir -p $GITHUB_WORKSPACE/download
+          cd $GITHUB_WORKSPACE/download
           wget https://cdn.discordapp.com/attachments/698589325620936736/845499146982129684/mwccarm.zip
           wget https://cdn.discordapp.com/attachments/698589325620936736/722822401963851797/NitroSDK-3_2-060901.7z
           unzip mwccarm.zip
@@ -49,3 +49,8 @@ jobs:
         with:
           name: ROM
           path: $GITHUB_WORKSPACE/pokediamond.us.nds
+      - name: Artifact 2
+        uses: actions/upload-artifact@v3
+        with:
+          name: ROM
+          path: $GITHUB_WORKSPACE/pokepearl.us.nds
