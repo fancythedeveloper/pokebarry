@@ -49,6 +49,7 @@ jobs:
         with:
           name: ROM
           path: $GITHUB_WORKSPACE/pokediamond.us.nds
+      - name: Artifact
       - uses: actions/upload-artifact@v3
         with:
           name: ROM
