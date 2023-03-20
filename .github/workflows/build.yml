@@ -39,13 +39,17 @@ jobs:
           mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
           mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/arm7
           mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/arm9
-        working-directory: ~
+        working-directory: $GITHUB_WORKSPACE
       - name: Build Diamond
         run: make diamond
       - name: Build Pearl
         run: make pearl
-      - name: Webhook
-        run: |
-          sudo chmod 755 $GITHUB_WORKSPACE/.github/calcrom/webhook.sh
-          $GITHUB_WORKSPACE/.github/calcrom/webhook.sh pokediamond "$CALCROM_WEBHOOK_URL"
-        continue-on-error: true
+      - name: Artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ROM
+          path: $GITHUB_WORKSPACE/pokediamond.us.nds
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ROM
+          path: $GITHUB_WORKSPACE/pokepearl.us.nds
