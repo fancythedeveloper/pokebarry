@@ -223,7 +223,7 @@ include filesystem.mk
 $(ROM): rom.rsf arm9 arm7 $(BNR) tools/bin/rom_header.template.sbin
 	$(MAKEROM) -DBUILD_DIR="$(BUILD_DIR)" -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 ifeq ($(SHIFTED),0)
-	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
+	$(FIXROM) $@ --game-code $(GAME_CODE)
 else
 	$(FIXROM) $@ --game-code $(GAME_CODE)
 endif
